@@ -1,1 +1,1 @@
-FROM docker.io/gitlab/gitlab-ce:latest
+FROM docker.io/gitlab/gitlab-ce:11.2.3-ce.0
