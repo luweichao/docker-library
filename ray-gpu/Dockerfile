@@ -16,7 +16,7 @@ RUN apt-get update \
     && apt-get clean \
     && echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh \
     && wget \
-        --quiet 'https://repo.continuum.io/archive/Anaconda3-4.4.0-Linux-x86_64.sh' \
+        --quiet 'https://repo.continuum.io/archive/Anaconda3-5.3.0-Linux-x86_64.sh' \
         -O /tmp/anaconda.sh \
     && /bin/bash /tmp/anaconda.sh -b -p /opt/conda \
     && rm /tmp/anaconda.sh \
