@@ -27,7 +27,7 @@ RUN apt-get update \
     && /opt/conda/bin/pip install \
         flatbuffers \
         cython==0.27.3 \
-        ray==0.5.2 \
+        ray==0.5.3 \
         numpy \
         gym[atari] \
         opencv-python==3.2.0.8 \
