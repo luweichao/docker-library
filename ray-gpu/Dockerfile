@@ -22,16 +22,19 @@ RUN apt-get update \
     && rm /tmp/anaconda.sh \
     && /opt/conda/bin/conda install -y \
         libgcc \
-        numpy \
     && /opt/conda/bin/conda clean -y --all \
     && /opt/conda/bin/pip install \
         flatbuffers \
         cython==0.27.3 \
-        ray==0.5.3 \
+        ray==0.6.0 \
         numpy \
         gym[atari] \
         opencv-python==3.2.0.8 \
         tensorflow-gpu \
+        lz4 \
+        keras \
+        pytest-timeout \
+    && pip install -U h5py \
     && /opt/conda/bin/pip install --upgrade git+git://github.com/hyperopt/hyperopt.git \
     && /opt/conda/bin/conda install pytorch-cpu torchvision-cpu -c pytorch
 
