@@ -34,7 +34,7 @@ RUN apt-get update \
         lz4 \
         keras \
         pytest-timeout \
-    && pip install -U h5py \
+    && /opt/conda/bin/pip install -U h5py \
     && /opt/conda/bin/pip install --upgrade git+git://github.com/hyperopt/hyperopt.git \
     && /opt/conda/bin/conda install pytorch-cpu torchvision-cpu -c pytorch
 
