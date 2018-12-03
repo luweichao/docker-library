@@ -16,7 +16,7 @@ RUN apt-get update \
     && apt-get clean \
     && echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh \
     && wget \
-        --quiet 'https://repo.continuum.io/archive/Anaconda3-4.4.0-Linux-x86_64.sh' \
+        --quiet 'https://repo.continuum.io/archive/Anaconda3-5.2.0-Linux-x86_64.sh' \
         -O /tmp/anaconda.sh \
     && /bin/bash /tmp/anaconda.sh -b -p /opt/conda \
     && rm /tmp/anaconda.sh \
@@ -27,11 +27,14 @@ RUN apt-get update \
     && /opt/conda/bin/pip install \
         flatbuffers \
         cython==0.27.3 \
-        ray==0.5.3 \
-        numpy \
+        ray==0.6.0 \
         gym[atari] \
         opencv-python==3.2.0.8 \
         tensorflow \
+        lz4 \
+        keras \
+        pytest-timeout \
+    && pip install -U h5py \
     && /opt/conda/bin/pip install --upgrade git+git://github.com/hyperopt/hyperopt.git \
     && /opt/conda/bin/conda install pytorch-cpu torchvision-cpu -c pytorch
 
