@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:latest-gpu
+FROM tensorflow/tensorflow:1.13.1-gpu
 RUN apt-get update \
     && apt-get install -y \
         git \
@@ -26,17 +26,17 @@ RUN apt-get update \
     && /opt/conda/bin/conda clean -y --all \
     && /opt/conda/bin/pip install \
         flatbuffers \
-        cython==0.27.3 \
-        ray==0.6.0 \
+        cython==0.29.0 \
+        ray \
         gym[atari] \
         opencv-python==3.2.0.8 \
-        tensorflow-gpu \
+        tensorflow-gpu==1.13.1 \
         lz4 \
         keras \
-        pytest-timeout \
-    && /opt/conda/bin/pip install -U h5py \
-    && /opt/conda/bin/pip install --upgrade git+git://github.com/hyperopt/hyperopt.git \
-    && /opt/conda/bin/conda install pytorch-cpu torchvision-cpu -c pytorch
+        pytest-timeout
+    # && /opt/conda/bin/pip install -U h5py \
+    # && /opt/conda/bin/pip install --upgrade git+git://github.com/hyperopt/hyperopt.git \
+    # && /opt/conda/bin/conda install pytorch-cpu torchvision-cpu -c pytorch
 
 ENV PATH "/opt/conda/bin:$PATH"
 ENV LC_ALL "C.UTF-8"
